@@ -20,6 +20,12 @@ function App() {
       >
         Last 10 messages
       </button>
+      <button
+        onClick={() => setEndPoint("messages")}
+        className="lastestMessages"
+      >
+        All messages
+      </button>
     </section>
   );
 }
