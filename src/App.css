@@ -1,0 +1,13 @@
+.messageList {
+  border: 1px solid red;
+}
+.message {
+  background-color: rgb(238, 145, 145);
+  margin: 1rem;
+  padding: 0.5rem;
+  list-style-type: none;
+}
+.messageFrom {
+}
+.messageText {
+}
