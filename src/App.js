@@ -5,15 +5,20 @@ import ShowMessages from "./componenets/ShowMessages";
 
 function App() {
   const [endPoint, setEndPoint] = useState("messages");
+  const [isFetchAgain, setIsFetchAgain] = useState(true);
   return (
     <section className="App">
-      <ShowMessages endPoint={endPoint} />
-      <SendMessage />
+      <ShowMessages
+        endPoint={endPoint}
+        setIsFetchAgain={setIsFetchAgain}
+        isFetchAgain={isFetchAgain}
+      />
+      <SendMessage setIsFetchAgain={setIsFetchAgain} />
       <button
         onClick={() => setEndPoint("messages/lastest")}
         className="lastestMessages"
       >
-        Lastest messages
+        Last 10 messages
       </button>
     </section>
   );

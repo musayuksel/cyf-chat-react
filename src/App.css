@@ -10,18 +10,29 @@ form {
   border-radius: 1rem;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 500px;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 .messageList {
   height: 600px;
   overflow: scroll;
+  padding: 1rem;
 }
 .message {
   background-color: #fff;
   border-radius: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 0.5rem 1rem;
   padding: 0.2rem 1rem;
   list-style-type: none;
+}
+.fa-trash {
+  cursor: pointer;
+  transition: 0.5s;
+}
+.fa-trash:hover {
+  color: #fc2727;
 }
 .messageFrom {
   font-size: 16px;
@@ -53,4 +64,7 @@ form button,
 form button:hover,
 .lastestMessages:hover {
   opacity: 0.8;
+}
+.lastestMessages {
+  width: 500px;
 }
