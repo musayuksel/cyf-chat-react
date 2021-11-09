@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function SendMessage() {
+export default function SendMessage({ setIsFetchAgain }) {
   //every time i don't have to say "event.target.value", i created my own state for form element
   function useFormState(initial) {
     const [value, setValue] = useState(initial);
@@ -27,7 +27,11 @@ export default function SendMessage() {
           "Content-Type": "application/json",
         },
       }
-    );
+    ).then((response) => {
+      if (response.ok) {
+        setIsFetchAgain((prev) => !prev);
+      }
+    });
   }
 
   return (

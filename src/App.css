@@ -1,13 +1,56 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.messageList,
+form {
+  /* border: 1px solid red; */
+  background-color: #611f69;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 500px;
+  margin: 2rem auto;
+}
 .messageList {
-  border: 1px solid red;
+  height: 600px;
+  overflow: scroll;
 }
 .message {
-  background-color: rgb(238, 145, 145);
-  margin: 1rem;
-  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 0.9rem;
+  margin: 0.5rem 1rem;
+  padding: 0.2rem 1rem;
   list-style-type: none;
 }
 .messageFrom {
+  font-size: 16px;
 }
 .messageText {
+}
+
+form input {
+  /* background-color: #efefef; */
+  border: 1px solid #ebebeb;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  margin: 1rem;
+}
+form input:focus {
+  outline: none;
+}
+form button,
+.lastestMessages {
+  background-color: rgb(68, 146, 235);
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.5s ease;
+}
+form button:hover,
+.lastestMessages:hover {
+  opacity: 0.8;
 }
