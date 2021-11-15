@@ -1,27 +1,16 @@
-import React, { useState, useEffect } from "react";
-import fetchData from "../utils/fetchData";
+import React, { useEffect } from "react";
 
 export default function ShowMessages({
-  endPoint,
-  setIsFetchAgain,
-  isFetchAgain,
+  messages,
+  fetchMsg,
 }) {
-  const [messages, setMessages] = useState([
-    {
-      id: 0,
-      from: "Musa",
-      text: "Welcome!",
-    },
-  ]);
-
-  useEffect(() => {
-    console.log(
-      `useEffect run again with endpoint=>/${endPoint}`
+  const deleteFunc = async (id) => {
+    await fetch(
+      `https://musayuksel3-chat-server.glitch.me/messages/${id}`,
+      { method: "DELETE" }
     );
-    fetchData(endPoint).then((messages) =>
-      setMessages(messages)
-    );
-  }, [endPoint, isFetchAgain]);
+    fetchMsg();
+  };
 
   const messageList = messages.map((message) => {
     return (
@@ -32,16 +21,7 @@ export default function ShowMessages({
         </div>
         <i
           className="fa fa-trash"
-          onClick={() => {
-            fetch(
-              `https://musayuksel3-chat-server.glitch.me/messages/${message.id}`,
-              { method: "DELETE" }
-            ).then((response) => {
-              if (response.ok) {
-                setIsFetchAgain((prev) => !prev);
-              }
-            });
-          }}
+          onClick={() => deleteFunc(message.id)}
           aria-hidden="true"
         ></i>
       </li>

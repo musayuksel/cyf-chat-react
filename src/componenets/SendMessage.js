@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
-export default function SendMessage({ setIsFetchAgain }) {
-  //every time i don't have to say "event.target.value", i created my own state for form element
+export default function SendMessage({ fetchMsg }) {
+  //every time i don't have to say "event.target.value",
+  // I created my own state for form element
   function useFormState(initial) {
     const [value, setValue] = useState(initial);
     function setEvent(event) {
@@ -29,7 +30,7 @@ export default function SendMessage({ setIsFetchAgain }) {
       }
     ).then((response) => {
       if (response.ok) {
-        setIsFetchAgain((prev) => !prev);
+        fetchMsg();
       }
     });
   }
