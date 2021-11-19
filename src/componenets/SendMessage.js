@@ -32,6 +32,9 @@ export default function SendMessage({ fetchMsg }) {
       if (response.ok) {
         fetchMsg();
       }
+      if (response.status === 400) {
+        window.alert("Please enter name and message");
+      }
     });
   }
 
@@ -44,6 +47,7 @@ export default function SendMessage({ fetchMsg }) {
           placeholder="Your Name"
           value={from}
           onChange={setFrom}
+          required
         />
 
         <input
@@ -52,6 +56,7 @@ export default function SendMessage({ fetchMsg }) {
           placeholder="The message..."
           value={text}
           onChange={setText}
+          required
         />
         <button type="submit">Send</button>
       </form>

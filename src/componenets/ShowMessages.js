@@ -5,11 +5,13 @@ export default function ShowMessages({
   fetchMsg,
 }) {
   const deleteFunc = async (id) => {
-    await fetch(
+    const response = await fetch(
       `https://musayuksel3-chat-server.glitch.me/messages/${id}`,
       { method: "DELETE" }
     );
-    fetchMsg();
+    if (response.ok) {
+      fetchMsg();
+    }
   };
 
   const messageList = messages.map((message) => {
